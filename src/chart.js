@@ -8,6 +8,7 @@ function getColor(isActive, alpha = 1) {
 
 function getLabel(el, i, data) {
   const x = new Date();
+
   x.setHours(x.getHours() - data.length + i);
   x.setMinutes(0);
   x.setSeconds(0);
@@ -15,12 +16,10 @@ function getLabel(el, i, data) {
   return x.toString();
 }
 
-export function createChart(container, data, isActive) {
+export default function createChart(container, data, isActive) {
   const ctx = container.getContext('2d');
-
   const borderColor = getColor(isActive);
   const backgroundColor = getColor(isActive, 0.5);
-
   const chart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -29,19 +28,19 @@ export function createChart(container, data, isActive) {
         {
           data: data,
           borderWidth: 1,
-            borderColor: borderColor,
-              backgroundColor: backgroundColor
+          borderColor: borderColor,
+          backgroundColor: backgroundColor
         }
       ]
     },
     options: {
-        legend: { 
-            display: false
-        },
-        scales: {
-            xAxes: [{ ticks: { display: false } }],
-            yAxes: [{ ticks: { beginAtZero: true, max: 0 } }]
-        }
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{ ticks: { display: false } }],
+        yAxes: [{ ticks: { beginAtZero: true } }]
+      }
     }
   });
 

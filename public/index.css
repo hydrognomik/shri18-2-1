@@ -20,6 +20,10 @@ body,
   font-size: 0.6em;
 }
 
+.details-label_geo {
+  font-size: 1em;
+}
+
 .details-title {
   font-size: 1.3em;
   font-weight: bold;
