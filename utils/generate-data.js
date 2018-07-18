@@ -2,6 +2,7 @@ const faker = require('faker');
 
 function rand() {
   const rnd = Math.random() - 0.5;
+
   return Math.sign(rnd) * Math.sqrt(Math.abs(rnd)) * 1.4;
 }
 
